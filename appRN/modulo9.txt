@@ -1,2 +1,7 @@
 /////// requisicoes http
 yarn add axios
+
+/////// picker
+npm install react-native-picker-select
+npm install @react-native-picker/picker
+
