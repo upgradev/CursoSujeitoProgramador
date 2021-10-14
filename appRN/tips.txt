@@ -1,0 +1,35 @@
+////////////////// instalação do picker
+    yarn add @react-native-picker/picker
+
+////////////////// instalar slider
+    yarn add @react-native-community/slider
+
+////////////////// instalar async storage, salvar dados no storage
+    yarn add @react-native-async-storage/async-storage
+
+
+////////////////// instalar icons 
+    https://github.com/oblador/react-native-vector-icons
+    npm install --save react-native-vector-icons
+
+////////////////// react navigation, navegação
+    https://reactnavigation.org/docs/getting-started/
+    yarn add @react-navigation/native
+
+    yarn add react-native-screens react-native-safe-area-context 
+    yarn add @react-navigation/native-stack
+
+    ////////////////// tabnavigation bottom
+    https://reactnavigation.org/docs/tab-based-navigation
+
+    ////////////////// Drawer navigator
+    https://reactnavigation.org/docs/drawer-navigator/
+    yarn add @react-navigation/drawer
+    yarn add react-native-gesture-handler react-native-reanimated
+    importar no index.js import 'react-native-gesture-handler';
+    se der erro
+    1 - Desinstalar:
+    npm uninstall --save react-native-reanimated
+    2- Depois instale 1 versão anterior a ultima:
+    npm install --save react-native-reanimated@1.13.2
+    yarn start --reset-cache

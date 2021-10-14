@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./pratica2.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <form onsubmit="return calcular()" action="" method="POST">
+      Digite seu peso: <br />
+      <input
+        type="text"
+        name="peso"
+        id="peso"
+        placeholder="exemplo: 65"
+      /><br /><br />
+      Digite sua Altura: <br />
+      <input
+        type="text"
+        name="altura"
+        id="altura"
+        placeholder="exemplo: 1.90"
+      /><br /><br />
+      <input type="submit" value="Calcular IMC" />
+    </form>
+    <div id="resultado"></div>
+  </body>
+</html>
