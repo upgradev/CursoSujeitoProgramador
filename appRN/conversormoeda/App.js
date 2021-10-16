@@ -1,43 +1,109 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   StyleSheet,
   Text,
   View,
   TextInput,
   TouchableOpacity,
+  ActivityIndicator,
+  Keyboard
 } from 'react-native';
 import Picker from './src/components/Picker';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <View style={styles.areaMoeda}>
-        <Text style={styles.titulo}>Selecione sua moeda</Text>
-        <Picker />
-      </View>
-      <View style={styles.areaValor}>
-        <Text style={styles.titulo}>
-          Digite um valor para converter em (R$)
-        </Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Ex. 150"
-          keyboardType="numeric"
-        />
-      </View>
-      <TouchableOpacity style={styles.btnArea}>
-        <Text style={styles.btnTexto}>Converter</Text>
-      </TouchableOpacity>
+import api from './src/services/api';
 
-      <View style={styles.areaResultado}>
-        <Text style={styles.valorConvertido}>3 USD</Text>
-        <Text style={[styles.valorConvertido, {fontSize: 18, margin: 10}]}>
-          Corresponde a
-        </Text>
-        <Text style={styles.valorConvertido}> 19.90 </Text>
+export default function App() {
+  const [moedas, setMoedas] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [moedaSelecionada, setMoedaSelecionada] = useState(null);
+  const [moedaBValor, setMoedaBValor] = useState(0);
+
+  const [valorMoeda, setValorMoeda] = useState(null);
+  const [valorConvertido, setValorConvertido] = useState(0);
+
+  useEffect(() => {
+    const loadMoedas = async () => {
+      const response = await api.get('all');
+
+      let arrayMoedas = [];
+
+      Object.keys(response.data).map(key => {
+        arrayMoedas.push({
+          key: key,
+          label: key,
+          value: key,
+        });
+      });
+
+      setMoedas(arrayMoedas);
+      setLoading(false);
+    };
+
+    loadMoedas();
+  }, []);
+
+  const converter = async () => {
+    if (moedaSelecionada === null || moedaBValor === 0) {
+      alert('Por favor selecione uma moeda');
+      return;
+    }
+    const response = await api.get(`all/${moedaSelecionada}-BRL`);
+    // console.log(response.data[moedaSelecionada].ask);
+
+    let resultado =
+      response.data[moedaSelecionada].ask * parseFloat(moedaBValor);
+
+    setValorConvertido(`R$ ${resultado.toFixed(2)}`);
+    setValorMoeda(moedaBValor);
+    // fecha o teclado
+    Keyboard.dismiss();
+  };
+
+  if (loading) {
+    return (
+      <View style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
+        <ActivityIndicator color="#fff" size={45} />
       </View>
-    </View>
-  );
+    );
+  } else {
+    return (
+      <View style={styles.container}>
+        <View style={styles.areaMoeda}>
+          <Text style={styles.titulo}>Selecione sua moeda</Text>
+          <Picker
+            moedas={moedas}
+            onChange={moeda => setMoedaSelecionada(moeda)}
+          />
+        </View>
+        <View style={styles.areaValor}>
+          <Text style={styles.titulo}>
+            Digite um valor para converter em (R$)
+          </Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Ex. 150"
+            keyboardType="numeric"
+            onChangeText={valor => setMoedaBValor(valor)}
+          />
+        </View>
+        <TouchableOpacity style={styles.btnArea} onPress={converter}>
+          <Text style={styles.btnTexto}>Converter</Text>
+        </TouchableOpacity>
+
+        {valorConvertido !== 0 && (
+          <View style={styles.areaResultado}>
+            <Text style={styles.valorConvertido}>
+              {valorMoeda} {moedaSelecionada}
+            </Text>
+            <Text style={[styles.valorConvertido, {fontSize: 18, margin: 10}]}>
+              Corresponde a
+            </Text>
+            <Text style={styles.valorConvertido}> {valorConvertido} </Text>
+          </View>
+        )}
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({

@@ -5,3 +5,10 @@ yarn add axios
 npm install react-native-picker-select
 npm install @react-native-picker/picker
 
+/////// api gratuita conversor
+https://docs.awesomeapi.com.br/
+https://economia.awesomeapi.com.br/json/all/USD-BRL
+
+
+/////// buscar cep
+https://viacep.com.br/ws/79003241/json/
