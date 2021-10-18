@@ -52,3 +52,14 @@ https://viacep.com.br/ws/79003241/json/
 ////////////////// Animação
 https://github.com/oblador/react-native-animatable
 npm install react-native-animatable --save
+
+////////////////// Firebase
+https://console.firebase.google.com/project/meuappestudo-4bd1e/overview?hl=pt
+
+criar o projeto em novo projeto
+depois ir em visão geral do projeto e criar um projeto, no caso do curso foi web
+criar um banco no realtime e em modo teste, para não precisar de autenticação de usuario no banco
+banco é do tipo NoSql
+ /////// instalar Firebase
+ npm install firebase@^8.8.1
+ depois ir em visão geral do projeto -> nomedoappcriado -> ir na engrenagem -> firebaseConfig
