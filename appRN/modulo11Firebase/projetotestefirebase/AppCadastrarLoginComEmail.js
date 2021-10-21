@@ -7,37 +7,33 @@ console.disableYellowBox = true;
 export default function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [nome, setNome] = useState("");
 
   const cadastrar = async () => {
     await firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then((value) => {
-        // alert(value.user.uid);
-        firebase.database().ref("usuarios").child(value.user.uid).set({
-          nome: nome
-        })
-        alert("Usuario criado com sucesso")
-        setNome("")
-        setEmail("")
-        setPassword("")
+        alert("Usuario criado: " + value.user.email);
       })
       .catch((error) => {
-        alert("Algo deu errado");
+        if (error.code === "auth/weak-password") {
+          alert("Sua senha devet ter pelo menos 6 caracteres");
+          return;
+        }
+        if (error.code === "auth/invalid-email") {
+          alert("Email invalido");
+          return;
+        } else {
+          alert("Ops algo deu errado!");
+          return;
+        }
       });
+    setEmail("");
+    setPassword("");
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.texto}>Nome</Text>
-      <TextInput
-        style={styles.input}
-        underlineColorAndroid="transparent"
-        onChangeText={(nome) => setNome(nome)}
-        value={nome}
-      />
-
       <Text style={styles.texto}>Email</Text>
       <TextInput
         style={styles.input}

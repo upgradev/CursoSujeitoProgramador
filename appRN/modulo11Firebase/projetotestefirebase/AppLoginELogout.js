@@ -7,37 +7,32 @@ console.disableYellowBox = true;
 export default function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [nome, setNome] = useState("");
+  const [user, setUser] = useState("");
 
-  const cadastrar = async () => {
+  const logar = async () => {
     await firebase
       .auth()
-      .createUserWithEmailAndPassword(email, password)
+      .signInWithEmailAndPassword(email, password)
       .then((value) => {
-        // alert(value.user.uid);
-        firebase.database().ref("usuarios").child(value.user.uid).set({
-          nome: nome
-        })
-        alert("Usuario criado com sucesso")
-        setNome("")
-        setEmail("")
-        setPassword("")
+        alert("Bem vindo... " + value.user.email);
+        setUser(value.user.email);
       })
       .catch((error) => {
-        alert("Algo deu errado");
+        alert("Ops algo deu errado!");
+        return;
       });
+    setEmail("");
+    setPassword("");
+  };
+
+  const logout = async () => {
+    await firebase.auth().signOut();
+    setUser("");
+    alert("Deslogado com sucesso");
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.texto}>Nome</Text>
-      <TextInput
-        style={styles.input}
-        underlineColorAndroid="transparent"
-        onChangeText={(nome) => setNome(nome)}
-        value={nome}
-      />
-
       <Text style={styles.texto}>Email</Text>
       <TextInput
         style={styles.input}
@@ -54,7 +49,31 @@ export default function App() {
         value={password}
       />
 
-      <Button title="Cadastrar" onPress={cadastrar} />
+      <Button title="Acessar" onPress={logar} />
+      <Text
+        style={{
+          marginTop: 20,
+          marginBottom: 20,
+          fontSize: 23,
+          textAlign: "center",
+        }}
+      >
+        {user}
+      </Text>
+      {user.length > 0 ? (
+        <Button title="Deslogar" onPress={logout} />
+      ) : (
+        <Text
+          style={{
+            marginTop: 20,
+            marginBottom: 20,
+            fontSize: 23,
+            textAlign: "center",
+          }}
+        >
+          Nenhum usuario esta logado
+        </Text>
+      )}
     </View>
   );
 }

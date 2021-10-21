@@ -61,5 +61,8 @@ depois ir em visão geral do projeto e criar um projeto, no caso do curso foi we
 criar um banco no realtime e em modo teste, para não precisar de autenticação de usuario no banco
 banco é do tipo NoSql
  /////// instalar Firebase
- npm install firebase@^8.8.1
+npm install firebase@^8.8.1
  depois ir em visão geral do projeto -> nomedoappcriado -> ir na engrenagem -> firebaseConfig
+
+
+ 
