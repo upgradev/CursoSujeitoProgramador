@@ -6,7 +6,7 @@
 
 ////////////////// instalar async storage, salvar dados no storage
     yarn add @react-native-async-storage/async-storage
-
+    import AsyncStorage from '@react-native-async-storage/async-storage';
 
 ////////////////// instalar icons 
     https://github.com/oblador/react-native-vector-icons
@@ -65,4 +65,21 @@ npm install firebase@^8.8.1
  depois ir em visão geral do projeto -> nomedoappcriado -> ir na engrenagem -> firebaseConfig
 
 
- 
+ ////////////////// instalar styled component
+ yarn add styled-components
+
+ ////////////////// ajuste status bar
+ yarn add react-native-status-bar-height
+
+ ////////////////// picker novo
+ https://github.com/react-native-picker/picker
+ yarn add @react-native-picker/picker
+
+////////////////// para as datas
+https://github.com/date-fns/date-fns
+yarn add date-fns
+
+////////////////// calendar picker
+https://github.com/react-native-community/datetimepicker
+yarn add @react-native-community/datetimepicker
+
