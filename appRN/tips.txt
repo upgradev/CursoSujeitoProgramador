@@ -91,10 +91,20 @@ npm install react-native-camera --save
 https://github.com/react-native-cameraroll/react-native-cameraroll
 npm install @react-native-community/cameraroll --save
 react-native link @react-native-community/cameraroll
-
-////////////////// erro na camera
+erro na camera
 npm install fbjs
 
 ////////////////// selecionar imagens/foto do album
 https://github.com/react-native-community/react-native-image-picker
 yarn add react-native-image-picker
+
+////////////////// rn Firebase
+https://rnfirebase.io/
+yarn add @react-native-firebase/app
+yarn add @react-native-firebase/auth
+yarn add @react-native-firebase/firestore
+yarn add @react-native-firebase/storage
+
+////////////////// animações
+https://github.com/oblador/react-native-animatable
+ npm install react-native-animatable --save
