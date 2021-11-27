@@ -108,3 +108,18 @@ yarn add @react-native-firebase/storage
 ////////////////// animações
 https://github.com/oblador/react-native-animatable
  npm install react-native-animatable --save
+
+
+////////////////// maps
+https://github.com/react-native-maps/react-native-maps
+npm install react-native-maps --save-exact
+npx react-native link react-native-maps
+AIzaSyAtC9AHdYzHyLUGQCVzjmxVBSyvXJfdwmE
+
+////////////////// geolocation
+https://github.com/react-native-geolocation/react-native-geolocation
+yarn add @react-native-community/geolocation
+
+
+////////////////// directions map
+npm install react-native-maps-directions --save
