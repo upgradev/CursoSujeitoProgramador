@@ -123,3 +123,9 @@ yarn add @react-native-community/geolocation
 
 ////////////////// directions map
 npm install react-native-maps-directions --save
+
+
+////////////////// banco de dados local
+https://realm.io/
+https://docs.mongodb.com/realm-legacy/docs/javascript/latest.html
+npm install --save realm
