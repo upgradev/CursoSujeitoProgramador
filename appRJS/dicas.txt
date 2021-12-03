@@ -5,3 +5,27 @@ yarn add react-router-dom
 ultimo https://reactrouterdotcom.fly.dev/docs/en/v6/getting-started/overview
 npm install react-router-dom@6
 
+///// Axios
+yarn add axios
+
+///// Toasty
+yarn add react-toastify
+
+///// subir projeto para teste
+https://www.netlify.com/
+
+///// fazer build
+na pasta public criar arquivo _redirects
+yarn build ou npm run build
+
+///// netlify
+npm install -g netlify-cli
+subir -> netlify deploy
+depois criar novo projeto no terminal q ele vai pedir
+colocar o nome do site
+depois dar ./build que é a pasta onde esta o projeto
+depois para produção netlify deploy --prod
+depois novamente ./build
+
+///// styled component
+yarn add styled-components
