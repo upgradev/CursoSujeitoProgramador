@@ -29,3 +29,7 @@ depois novamente ./build
 
 ///// styled component
 yarn add styled-components
+
+
+///// firebase
+npm install firebase@^8.8.1
