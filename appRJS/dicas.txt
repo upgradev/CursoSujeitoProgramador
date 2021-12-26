@@ -33,3 +33,8 @@ yarn add styled-components
 
 ///// firebase
 npm install firebase@^8.8.1
+
+
+///// react icons
+https://react-icons.github.io/react-icons/
+yarn add react-icons
