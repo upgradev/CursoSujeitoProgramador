@@ -30,11 +30,26 @@ depois novamente ./build
 ///// styled component
 yarn add styled-components
 
-
 ///// firebase
 npm install firebase@^8.8.1
-
 
 ///// react icons
 https://react-icons.github.io/react-icons/
 yarn add react-icons
+
+//// json server
+npm install -g json-server
+json-server server.json -p 3333 ou qq porta que quiser
+
+//// redux
+yarn add redux react-redux
+
+//// immer para trabalhar com imutabilidade
+https://immerjs.github.io/immer/
+yarn add immer
+
+//// redux saga
+yarn add redux-saga
+
+//// rotas no redux saga
+yarn add history
