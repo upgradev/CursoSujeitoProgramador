@@ -1,0 +1,35 @@
+////iniciar 
+yarn init -y
+
+//// express
+yarn add express
+
+// query params = ?nome=Nodejs
+
+// route params = /curso/2
+
+// request body (corpo da requisicao) = {nome: "curso node", tipo: "back end"}
+
+/// nodemon para live reload 
+yarn add nodemon -D
+package.json
+"scripts": {
+    "dev" : "nodemon index.js"
+  },
+
+//// sintaxe de import export
+yarn add sucrase -D
+
+criar o arquivo na raiz nodemon.json
+{
+    "execMap": {
+        "js": "node -r sucrase/register"
+    }
+}
+e no package.json
+"scripts": {
+    "dev" : "nodemon src/server.js"
+  },
+
+//// banco de dados mongo
+yarn add mongoose
