@@ -1,18 +1,28 @@
 // metodos : index, show, update, store, destroy
 
+import * as Yup from "yup";
 import User from "../models/User";
 
 class SessionController {
-  async store(req, res) {
-    const { email } = req.body;
-    let user = await User.findOne({ email });
+    async store(req, res) {
+        const schema = Yup.object().shape({
+            email: Yup.string().email().required(),
+        });
 
-    if (!user) {
-      user = await User.create({ email: email });
+        const { email } = req.body;
+
+        if (!(await schema.isValid(req.body))) {
+            return res.status(400).json({ error: "Falha na Validação" });
+        }
+
+        let user = await User.findOne({ email });
+
+        if (!user) {
+            user = await User.create({ email });
+        }
+
+        return res.json(user);
     }
-
-    return res.json(user);
-  }
 }
 
 export default new SessionController();

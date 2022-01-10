@@ -33,3 +33,19 @@ e no package.json
 
 //// banco de dados mongo
 yarn add mongoose
+
+//// multipartforma enviar arquivos e imagens
+yarn add multer
+
+//// cors para limitar o acesso a api
+yarn add cors
+
+//// trabalhar com verificações dos campos, validações
+https://github.com/jquense/yup
+yarn add yup
+
+///// padrão de codigo / projeto
+yarn add eslint -D
+rodar : yarn eslint --init
+yarn add prettier eslint-config-prettier eslint-plugin-prettier -D
+arrumar os arquivos: yarn eslint --fix src --ext .js
