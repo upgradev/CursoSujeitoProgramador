@@ -1,0 +1,31 @@
+git init -> inicia repositorio (.git)
+
+git add nomeDoArquivo -> adiconando no git
+git add . -> trackear todos os arquivos
+
+git commit nomeDoArquivo -m "mensagem que queira" -> commit de unico arquivo
+git commit -m "mensagem que queira" -> comita todos os arquivos
+
+///quando criou no github um repositorio e vc não tem ainda
+git init
+git add README.md
+git commit -m "algum comentario"
+git branch -M main/master
+git remote add origin linkdorepositorio
+git push -u origin main/master
+
+
+///quando criou no github um repositorio e vc ja tem um projeto no pc
+git remote add origin linkdorepositorio
+git branch -M main/master
+git push -u origin main/master
+
+git pull -> busca tudo que foi adicionado no repositorio
+
+git clone link da url do repositorio -> clonando o repositorio
+git clone link da url do repositorio . -> clona os arquivos sem criacao de uma pasta com nome do repositorio
+
+
+git log -> ver todos os logs, todos os commits que foi feita no repositorio
+
+git checkout -> rollback do repositorio

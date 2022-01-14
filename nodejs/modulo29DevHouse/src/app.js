@@ -9,7 +9,7 @@ class App {
         this.server = express();
 
         mongoose.connect(
-            "mongodb://127.0.0.1:27017/devhouse?retryWrites=true&w=majority",
+            "mongodb://127.0.0.1:27017/nomedobanco?retryWrites=true&w=majority",
             {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,

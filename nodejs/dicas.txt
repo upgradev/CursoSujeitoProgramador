@@ -49,3 +49,24 @@ yarn add eslint -D
 rodar : yarn eslint --init
 yarn add prettier eslint-config-prettier eslint-plugin-prettier -D
 arrumar os arquivos: yarn eslint --fix src --ext .js
+
+
+//// sequelize trabalhar com ORM / banco de dados relacional
+https://sequelize.org/master/manual/getting-started.html
+yarn add sequelize
+yarn add sequelize-cli -D
+criar o arquivo .sequelizerc
+yarn add pg pg-hstore
+
+//// gerar as migrations
+yarn sequelize migration:create --name=create-users
+criar os campos no arquivo das migrations
+yarn sequelize db:migrate
+desfazer a tabela: yarn sequelize db:migrate:undo
+desfazer todas as migrations: yarn sequelize db:migrate:undo:all
+
+//// senha hash
+yarn add bcryptjs
+
+//// jwt
+yarn add jsonwebtoken
