@@ -29,3 +29,52 @@ git clone link da url do repositorio . -> clona os arquivos sem criacao de uma p
 git log -> ver todos os logs, todos os commits que foi feita no repositorio
 
 git checkout -> rollback do repositorio
+
+.gitignore -> inserir no arquivo o que não quer q envie para o github
+    ex: /node_modules; .env; etc
+
+git reset --hard origin/main ou master -> voltar ao ultimo commit/push que esta no github (usar antes de dar o push)
+
+///branch
+git branch -> ver as branchs do projeto
+git branch nome_branch -> criar branch
+git checkout nome_branch -> mudar para a branch que queira
+git checkout -b nova_branch -> ja cria a branch e troca para ela
+git branch -d nome_branch -> deletar a branch
+
+git merge branch_que_vou_pegar_alteracoes -> estar dentro da branch main/master ou prod ou na branch que queira fazer o merge
+depois git push para enviar para o github
+
+git fetch -a -> buscar todas as branch, e verifica se tem alguma diferente
+git pull -> puxa todas as alterações novas da branch
+
+///stash
+git stash -> volta ao status inicial da branch e fica salvo caso precise reverter
+git stash list -> listar as stash
+git stash apply id_do_stash -> aplica qual stash deseja ir
+git stash show -p id_do_stash -> ver as alteracoes
+
+//// tag
+git tag -a nome_da_tag ex: v1.0 -m "primeira versoa do sistema"
+git tag -> mostra as tags
+git show nome_da_tag -> mostra os detalhes das tags
+git checkout nome_da_tag -> vai para a versão que queira
+git push origin nome_da_tag -> subir para o github
+git push origin --tags -> envia todas as tags
+
+
+
+//// git gc (garbage colector)
+git gc -> excluir uns arquivos que não são usado e que deixa lento, cuidado q não ve o q deleta
+
+////  shortlog
+git shortlog -> mostra todos os commits, de todos os autores
+
+//// diff
+git diff -> comparar os arquivos local com o que esta remoto (github)
+
+//// reflog 
+git reflog -> exibe todos os detalhes preciso feito nesse repositorio
+            -> tempo de expiração pardrão de 30 dias
+
+
